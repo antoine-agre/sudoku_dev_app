@@ -36,3 +36,8 @@ nom d'une variable importante : `unexemple`
 Ne pas oublier de mettre des commentaires pour détailler les fonctions/variables
 
 Envoyer les fichiers créés et mettre un commentaire
+
+---
+
+Liens utiles :
+
