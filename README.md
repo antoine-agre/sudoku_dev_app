@@ -6,7 +6,7 @@ Projet dev app en C sur le sudoku, le sujet complet est disponible sur ce dépô
 
 ## Les différentes actions :
 
-- initialisation de la grille
+- initialisation de la grille (difficulté fonction du nombre initial de case remplies)
   - facile
   - normal
   - difficile
