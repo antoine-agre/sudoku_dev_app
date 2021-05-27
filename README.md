@@ -40,4 +40,4 @@ Envoyer les fichiers créés et mettre un commentaire
 ---
 
 Liens utiles :
-
+https://www.lemonde.fr/passeurdesciences/article/2012/08/12/une-echelle-de-richter-pour-les-grilles-de-sudoku_5986268_5470970.html
