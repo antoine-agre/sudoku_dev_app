@@ -29,7 +29,7 @@ Projet dev app en C sur le sudoku, le sujet complet est disponible sur ce dépô
 
 nom de fonction : `unExemple`
 
-nom d'une variable importante : `unexemple`
+nom d'une variable importante : `unExemple`
 
 ---
 
