@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
-
-typedef int Grid[9][9];
+#define MAX 9
+typedef int Grid[MAX][MAX];
 
 void afficherGrille(Grid grille){
 
     printf("\n\n");
-    for (int i = 0; i < 9; i++){
-        for(int j = 0; j < 9; j++){
+    for (int i = 0; i < MAX; i++){
+        for(int j = 0; j < MAX; j++){
             if(grille[i][j] == 0){printf(".\t");}
             else {printf("%d\t", grille[i][j]);}
         }
@@ -19,17 +19,17 @@ void afficherGrille(Grid grille){
 }
 
 bool isValidMove(Grid grille, int x, int y, int n){
-    //Vérifie si colonne + ligne + carré de la case x y ne contiennent jamais l'entier n (y compris case x y)
+    //VÃ©rifie si colonne + ligne + carrÃ© de la case x y ne contiennent jamais l'entier n (y compris case x y)
 
-    for(int i = 0; i < 9; i++){ //ligne
+    for(int i = 0; i < MAX; i++){ //ligne
         if(grille[x][i] == n){return false;}
     }
 
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < MAX; i++){
         if(grille[i][y] == n){return false;}
     }
 
-    //k/l : décalage ligne/colonne
+    //k/l : dÃ©calage ligne/colonne
     int k,l;
 
     if(x >= 0 && x <= 2){k = 0;}
@@ -51,8 +51,8 @@ bool isValidMove(Grid grille, int x, int y, int n){
 
 void fillZero(Grid grille){
 
-    for(int i = 0; i < 9; i++){
-        for(int j = 0; j < 9; j++){
+    for(int i = 0; i < MAX; i++){
+        for(int j = 0; j < MAX; j++){
             grille[i][j] = 0;
         }
     }
@@ -73,7 +73,7 @@ void randomGenerate(Grid grille, int nbClues){
         y = rand()%9;
         printf("zboub");
         //*current = &grille[x][y];
-        printf("pos random : %d %d ; grille à cet emplacement : %d\n", x, y, grille[x][y]/*current*/);
+        printf("pos random : %d %d ; grille Ã  cet emplacement : %d\n", x, y, grille[x][y]/*current*/);
 
         if(/*current == 0*/grille[x][y] == 0){
 
@@ -91,7 +91,7 @@ void randomGenerate(Grid grille, int nbClues){
 
 int main()
 {
-    srand(time(NULL));//seed aléatoire
+    srand(time(NULL));//seed alÃ©atoire
     Grid test;
 
     /*for (int i = 0; i < 9; i++){
