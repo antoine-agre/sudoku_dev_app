@@ -19,10 +19,10 @@ Projet dev app en C sur le sudoku, le sujet complet est disponible sur ce dépô
 - possibilité de jeu
   - jouer
   - options de jeu
-    - temps
-    - points
-    - vérification instantanée d'erreur
-    - joker (place un chiffre sur la grille : nombre limité)
+      - temps
+      - points
+      - vérification instantanée d'erreur
+      - joker (place un chiffre sur la grille : nombre limité)
   - comparaison de la grille remplie par l'utilisateur avec la grille réponse
     
 ## Nomenclature :
@@ -33,8 +33,8 @@ nom d'une variable importante : `unExemple`
 
 ---
 
-Ne pas oublier de mettre des commentaires pour détailler les fonctions/variables
+Ne pas oublier de mettre des commentaires pour détailler les fonctions/variables.
 
-Envoyer les fichiers créés et mettre un commentaire
+Mettre des commentaire pour les changements opérés sur les fichier.
 
 ---
