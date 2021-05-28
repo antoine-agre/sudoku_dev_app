@@ -35,6 +35,6 @@ nom d'une variable importante : `unExemple`
 
 Ne pas oublier de mettre des commentaires pour détailler les fonctions/variables.
 
-Mettre des commentaire pour les changements opérés sur les fichier.
+Mettre des commentaires pour les changements opérés sur les fichier.
 
 ---
