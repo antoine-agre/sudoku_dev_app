@@ -71,7 +71,6 @@ void randomGenerate(Grid grille, int nbClues){
         //srand(rand());
         x = rand()%9;
         y = rand()%9;
-        printf("zboub");
         //*current = &grille[x][y];
         printf("pos random : %d %d ; grille à cet emplacement : %d\n", x, y, grille[x][y]/*current*/);
 
