@@ -3,9 +3,10 @@
 #include <stdbool.h>
 #include <time.h>
 #define MAX 9
+
 typedef int Grid[MAX][MAX];
 
-void afficherGrille(Grid grille){
+/*void afficherGrille(Grid grille){
 
     printf("\n\n");
     for (int i = 0; i < MAX; i++){
@@ -16,7 +17,7 @@ void afficherGrille(Grid grille){
         printf("\n\n");
     }
 
-}
+}*/
 
 bool isValidMove(Grid grille, int x, int y, int n){
     //Vérifie si colonne + ligne + carré de la case x y ne contiennent jamais l'entier n (y compris case x y)
@@ -89,12 +90,12 @@ void randomGenerate(Grid grille, int nbClues){
     }
 }
 
-int main()
+/*int main()
 {
     srand(time(NULL));//seed aléatoire
     Grid test;
 
-    /*for (int i = 0; i < 9; i++){
+    for (int i = 0; i < 9; i++){
         for(int j = 0; j < 9; j++){
             test[i][j] = 18;
         }
@@ -105,14 +106,14 @@ int main()
 
     afficherGrille(test);
     *current = 14;
-    afficherGrille(test);*/
+    afficherGrille(test);
 
     fillZero(test);
     afficherGrille(test);
     randomGenerate(test, 35);
     afficherGrille(test);
 
-    /*test[1][1] = 8;
+    test[1][1] = 8;
     afficherGrille(test);
 
     int *z = &test[1][1];
@@ -120,7 +121,7 @@ int main()
     test[2][2] = 5;
     afficherGrille(test);
     *z = 9;
-    afficherGrille(test);*/
+    afficherGrille(test);
 
     return 0;
-}
+}*/
