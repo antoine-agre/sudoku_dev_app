@@ -1,8 +1,8 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <string.h>
 #define MAX 9
 typedef int Grid[MAX][MAX];
 FILE* fichier = NULL;
@@ -10,7 +10,11 @@ FILE* fichier = NULL;
 
 void afficherGrille(Grid grille){
 
-    fichier = fopen("test.txt", "w");
+    char name[30];
+    printf("entrez le nom de la grille \n");
+    scanf("%s",name);
+    strcat(name, ".txt");
+    fichier = fopen(name, "w");
     printf("\n\n");
     fputs("\n\n", fichier);
     for (int i = 0; i < MAX; i++){
@@ -72,21 +76,19 @@ void fillZero(Grid grille){
 
 void randomGenerate(Grid grille, int nbClues){
 
-    fichier = fopen("test.txt", "w");
     int count = 0, x, y, candidate, *current;
     bool ok;
 
     //r = rand();
     while(count < nbClues){
         printf("count : %d\n", count);
-        fprintf(fichier,"count : %d\n", count);
 
         //srand(rand());
         x = rand()%9;
         y = rand()%9;
         //*current = &grille[x][y];
         printf("pos random : %d %d ; grille à cet emplacement : %d\n", x, y, grille[x][y]/*current*/);
-        fprintf(fichier, "pos random : %d %d ; grille à cet emplacement : %d\n", x, y, grille[x][y]);
+
 
         if(/*current == 0*/grille[x][y] == 0){
 
@@ -95,8 +97,8 @@ void randomGenerate(Grid grille, int nbClues){
                 candidate = rand()%9 + 1;
                 printf("Position %d %d, candidat %d\n", x, y, candidate);
                 fprintf(fichier, "Position %d %d, candidat %d\n", x, y, candidate);
-                if(isValidMove(grille, x, y, candidate)){grille[x][y] = candidate; /*current = candidate;*/ ok = true; printf("valide\n"); fputs("valide\n", fichier);}
-                else {printf("non valide\n"); fputs("non valide\n", fichier);}
+                if(isValidMove(grille, x, y, candidate)){grille[x][y] = candidate; /*current = candidate;*/ ok = true; printf("valide\n");}
+                else {printf("non valide\n");}
             }
             count++;
         }
@@ -120,7 +122,6 @@ int main()
     afficherGrille(test);*/
 
     fillZero(test);
-    afficherGrille(test);
     randomGenerate(test, 25);
     afficherGrille(test);
 
