@@ -146,7 +146,7 @@ bool isValidMove(Grid grid, int x, int y, int n){
 
 void randomGenerate(Grid grid, int nbClues){
 
-    int count = 0, x, y, candidate, *current;
+    int count = 0, x, y, candidate;
     bool ok;
 
     //r = rand();
@@ -156,19 +156,12 @@ void randomGenerate(Grid grid, int nbClues){
         //srand(rand());
         x = rand()%MAX;
         y = rand()%MAX;
-        //*current = &grid[x][y];
-        printf("Position aleatoire : %d %d ; nombre dans cette case : %d\n", x, y, grid[x][y]/*current*/);
 
-        if(/*current == 0*/grid[x][y] == 0){
-
-            ok = false;
-            while (ok!=true){
-                candidate = rand()%MAX + 1;
-                printf("Position %d %d, candidat %d\n", x, y, candidate);
-                if(isValidMove(grid, x, y, candidate)==true){grid[x][y] = candidate; /*current = candidate;*/ ok = true; printf("valide\n");}
-                else {printf("non valide\n");}
-            }
-            count++;
+        if(grid[x][y] == 0){
+            candidate = rand()%MAX + 1;
+            printf("Position  : %d %d ; candidat : %d\n", x, y, candidate);
+            if(isValidMove(grid, x, y, candidate)==true){grid[x][y] = candidate; count++; printf("valide\n");}
+            else {printf("non valide\n");}
         }
     }
 }

@@ -10,6 +10,6 @@ int main(){
     fillZero(grid);
     randomGenerate(grid,35);
     printGrid(grid);
-    saveGrid(grid);
+    //saveGrid(grid);
     return 0;
 }
