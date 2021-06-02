@@ -4,6 +4,7 @@
 #include<math.h>
 #include <stdbool.h>
 #define MAX 9
+
 typedef int Grid[MAX][MAX];
 
 void printGrid(Grid grid){
@@ -17,7 +18,7 @@ void printGrid(Grid grid){
         printf("\n\n");
     }
 
-}
+}*/
 
 void fillZero(Grid grid){
 
@@ -89,13 +90,4 @@ void randomGenerate(Grid grid, int nbClues){
             count++;
         }
     }
-}
-
-int main(){
-srand(time(NULL));
-Grid grid;
-fillZero(grid);
-randomGenerate(grid,35);
-printGrid(grid);
-return 0;
 }
