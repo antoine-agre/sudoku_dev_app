@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define MAX 9
 
-typedef int Grid[MAX][MAX]
+typedef int Grid[MAX][MAX];
 
 int main(){
 srand(time(NULL));
