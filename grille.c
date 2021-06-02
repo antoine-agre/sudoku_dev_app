@@ -38,7 +38,7 @@ void compareGrid(Grid grid1, Grid grid2){
     }
 }
 
-void afficherGrille(Grid grille){
+void printGrid(Grid grille){
 
     printf("\n\n");
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", B_UPPER_LEFT, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,

@@ -7,19 +7,6 @@
 
 typedef int Grid[MAX][MAX];
 
-void printGrid(Grid grid){
-
-    printf("\n\n");
-    for (int i = 0; i < MAX; i++){
-        for(int j = 0; j < MAX; j++){
-            if(grid[i][j] == 0){printf(".\t");}
-            else {printf("%d\t", grid[i][j]);}
-        }
-        printf("\n\n");
-    }
-
-}*/
-
 void fillZero(Grid grid){
 
     for(int i = 0; i < MAX; i++){
