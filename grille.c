@@ -23,7 +23,7 @@
 typedef int Grid[MAX][MAX];
 
 void compareGrid(Grid grid1, Grid grid2){
-    //procédure qui compare deux grilles et affiche en rouge les cases non identiques. (grid1 = grille de vérification)
+    //procÃ©dure qui compare deux grilles et affiche en rouge les cases non identiques. (grid1 = grille de vÃ©rification)
     int i,j; //i lignes ; j colonnes
     for(i=0;i<MAX;i++){
             printf("\n");

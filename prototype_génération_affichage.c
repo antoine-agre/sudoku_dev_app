@@ -1,48 +1,61 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<math.h>
 #include <stdbool.h>
-#include <time.h>
 #define MAX 9
 
 typedef int Grid[MAX][MAX];
 
-/*void afficherGrille(Grid grille){
+void printGrid(Grid grid){
 
     printf("\n\n");
     for (int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(grille[i][j] == 0){printf(".\t");}
-            else {printf("%d\t", grille[i][j]);}
+            if(grid[i][j] == 0){printf(".\t");}
+            else {printf("%d\t", grid[i][j]);}
         }
         printf("\n\n");
     }
 
 }*/
 
-bool isValidMove(Grid grille, int x, int y, int n){
+void fillZero(Grid grid){
+
+    for(int i = 0; i < MAX; i++){
+        for(int j = 0; j < MAX; j++){
+            grid[i][j] = 0;
+        }
+    }
+
+}
+
+
+bool isValidMove(Grid grid, int x, int y, int n){
+    //il faut des nombre avec une racine carré parfaite
     //Vérifie si colonne + ligne + carré de la case x y ne contiennent jamais l'entier n (y compris case x y)
 
     for(int i = 0; i < MAX; i++){ //ligne
-        if(grille[x][i] == n){return false;}
+        if(grid[x][i] == n){return false;}
     }
 
-    for(int i = 0; i < MAX; i++){
-        if(grille[i][y] == n){return false;}
+    for(int i = 0; i < MAX; i++){//colonne
+        if(grid[i][y] == n){return false;}
     }
 
-    //k/l : décalage ligne/colonne
+    // k et l : décalage ligne/colonne
     int k,l;
 
-    if(x >= 0 && x <= 2){k = 0;}
-    else if(x >= 3 && x <= 5){k = 3;}
-    else if(x >= 6 && x <= 8){k = 6;}
-    if(y >= 0 && y <= 2){l = 0;}
-    else if(y >= 3 && y <= 5){l = 3;}
-    else if(y >= 6 && y <= 8){l = 6;}
+    if(x >= 0 && x < sqrt(MAX)){k = 0;}
+    else if(x >= sqrt(MAX) && x < 2*sqrt(MAX)){k = sqrt(MAX);}
+    else if(x >= 2*sqrt(MAX) && x < MAX){k = 2*sqrt(MAX);}
+    if(y >= 0 && y < sqrt(MAX)){l = 0;}
+    else if(y >= sqrt(MAX) && y < 2*sqrt(MAX)){l = sqrt(MAX);}
+    else if(y >= 2*sqrt(MAX) && y < MAX){l = 2*sqrt(MAX);}
 
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            if(grille[i+k][j+l] == n){return false;}
+    for(int i = 0; i <sqrt(MAX); i++){
+        for(int j = 0; j <sqrt(MAX); j++){
+            if(grid[i+k][j+l] == n){return false;}
         }
     }
 
@@ -50,78 +63,31 @@ bool isValidMove(Grid grille, int x, int y, int n){
 
 }
 
-void fillZero(Grid grille){
-
-    for(int i = 0; i < MAX; i++){
-        for(int j = 0; j < MAX; j++){
-            grille[i][j] = 0;
-        }
-    }
-
-}
-
-void randomGenerate(Grid grille, int nbClues){
+void randomGenerate(Grid grid, int nbClues){
 
     int count = 0, x, y, candidate, *current;
     bool ok;
 
     //r = rand();
-    while(count < nbClues){
-        printf("count : %d\n", count);
+    while(count <nbClues){
+        printf("Nombre numero : %d\n", count+1);
 
         //srand(rand());
-        x = rand()%9;
-        y = rand()%9;
-        printf("zboub");
-        //*current = &grille[x][y];
-        printf("pos random : %d %d ; grille à cet emplacement : %d\n", x, y, grille[x][y]/*current*/);
+        x = rand()%MAX;
+        y = rand()%MAX;
+        //*current = &grid[x][y];
+        printf("Position aleatoire : %d %d ; nombre dans cette case : %d\n", x, y, grid[x][y]/*current*/);
 
-        if(/*current == 0*/grille[x][y] == 0){
+        if(/*current == 0*/grid[x][y] == 0){
 
             ok = false;
-            while (!ok){
-                candidate = rand()%9 + 1;
+            while (ok!=true){
+                candidate = rand()%MAX + 1;
                 printf("Position %d %d, candidat %d\n", x, y, candidate);
-                if(isValidMove(grille, x, y, candidate)){grille[x][y] = candidate; /*current = candidate;*/ ok = true; printf("valide\n");}
+                if(isValidMove(grid, x, y, candidate)==true){grid[x][y] = candidate; /*current = candidate;*/ ok = true; printf("valide\n");}
                 else {printf("non valide\n");}
             }
             count++;
         }
     }
 }
-
-/*int main()
-{
-    srand(time(NULL));//seed aléatoire
-    Grid test;
-
-    for (int i = 0; i < 9; i++){
-        for(int j = 0; j < 9; j++){
-            test[i][j] = 18;
-        }
-    }
-
-    int *current = &test[rand()%9][rand()%9];
-    printf("truc hasard : %d\n", *current);
-
-    afficherGrille(test);
-    *current = 14;
-    afficherGrille(test);
-
-    fillZero(test);
-    afficherGrille(test);
-    randomGenerate(test, 35);
-    afficherGrille(test);
-
-    test[1][1] = 8;
-    afficherGrille(test);
-
-    int *z = &test[1][1];
-    printf("grille : %d \npointeur : %d \n", test[1][1], *z);
-    test[2][2] = 5;
-    afficherGrille(test);
-    *z = 9;
-    afficherGrille(test);
-
-    return 0;
-}*/
