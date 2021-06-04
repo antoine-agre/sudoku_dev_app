@@ -34,20 +34,16 @@ void saveGrid(Grid grille){
 }
 
 
-void lireGrille(Grid grille)
+void readGrille(Grid grille)
 {
-    int i=0;
-    int j=0;
     fichier = fopen("grille1.txt", "r");
-    while(fgetc != EOF){
-        while(fgetc(fichier)!="\n"){
-            grille[i][j]=fgetc(fichier);
-            i++;
+    for(int i=0; i<MAX; i++){
+        for(int j=0; j<MAX; j++){
+            grille[i][j]=fgetc(fichier)-48;
         }
-        i=0;
-        grille[i][j]=fgetc(fichier);
-        j++;
+        fseek(fichier, 2, SEEK_CUR);
     }
+
 }
 
 
