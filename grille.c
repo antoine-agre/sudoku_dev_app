@@ -47,8 +47,10 @@ void printGrid(Grid grille){
 
     //Coordonnées
 
-    for(int i = 0; i < MAX; i++){
-        printf(" C%d ", i);}
+    for(int i = 1; i <= MAX; i++){
+        if(i > 10){printf("C%d ", i);}
+        else{printf(" C%d ", i);}
+    }
     printf("\n");
 
     //Première ligne
@@ -76,7 +78,7 @@ void printGrid(Grid grille){
             printf(" %c %c", intToChar(grille[i][j]), separateur);
         }
 
-        printf(" L%d\n", i);
+        printf(" L%d\n", i+1);
 
         //ligne séparateurs
         printf("%c",B_VERTICAL);
@@ -110,7 +112,7 @@ void printGrid(Grid grille){
         printf(" %c %c", intToChar(grille[MAX-1][j]), separateur);
     }
 
-    printf(" L%d\n", MAX-1);
+    printf(" L%d\n", MAX);
 
     //
 

@@ -11,6 +11,8 @@ int main(){
     fillZero(grid);             //initialisation avec des zeros
     randomGenerate(grid,35);    //rempliçage de la grille
     printGrid(grid);            //Affichage de la grille
+    //play(grid);
+    printGrid(grid);
     //saveGrid(grid);
     //Selection des options
     //boucle qui pour chaque itération fait jouer un coup au joueur et applique les options selectionnés précédement
