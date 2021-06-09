@@ -23,7 +23,7 @@ void playWithDetection(Grid grid){
         scanf("%d",&n);
         possible=isValidMove(grid,x-1,y-1,n);
         if(possible==false){
-            printf("Ah mince, ce n'est coup n'est pas possible. Mais ne t'en fais pas tu n'as qu'a reessayer!");
+            printf("Ah mince, ce coup n'est pas possible. Mais ne t'en fais pas tu n'as qu'a reessayer!");
         }
         else{
             grid[x-1][y-1]=n;
