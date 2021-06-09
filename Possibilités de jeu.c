@@ -5,6 +5,18 @@
 
 typedef int Grid[MAX][MAX];
 
+void rules(){
+    printf("\nLe Sudoku\n");
+    printf("Les règles sont les suivantes :\n");
+    printf("Une seule fois le même nombre par ligne/colonne.\n");
+    printf("Une seule fois le même nombre dans une sous-grille (tableau ayant un autre nombre de lignes/colonnes inférieur à celui de la grille).\n");
+    printf("Notre jeu propose plusieurs options que tu pourra selectionner avant la partie.\n");
+    printf("Normes de saisie du jeu :\n");
+    printf("Lors de la selectin des options, ecris o pour l'avoir ou n pour la desactiver.\n");
+    printf("Lors d'un coup, il faut écrire le numero de la ligne, puis le numero de la colonne et enfin le nombre que tu veux jouer.\n");
+    printf("Bon courage!\n");
+}
+
 void playWithDetection(Grid grid){
   //Cette fonction permet de jouer en regardant si le coup est jouable ou non.
     int x,y,n;
