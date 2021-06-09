@@ -41,63 +41,81 @@ void compareGrid(Grid grid1, Grid grid2){
 }
 
 void printGrid(Grid grille){
+    /**Affiche la grille en interface graphique*/
 
-    printf("\n\n");
-    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", B_UPPER_LEFT, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,
-           B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_T_LOW,
-           B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,
-           B_HORIZONTAL, B_HORIZONTAL, B_T_LOW, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,
-           B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_UPPER_RIGHT);
+    int car = 0, separateur = 0;
 
-    for (int i = 0; i < MAX; i++){
+    //Première ligne
 
-        printf("%c",B_VERTICAL);
+    printf("%c",B_UPPER_LEFT);
+    for(int i = 0; i < sqrt(MAX); i++){
+        for(int j = 0; j < 4*sqrt(MAX)-1; j++){
+            printf("%c", B_HORIZONTAL);
+        }
+        if(i < sqrt(MAX)-1){printf("%c",B_T_LOW);}
+    }
+    printf("%c\n", B_UPPER_RIGHT);
+
+    //Boucle centrale
+
+    for(int i = 0; i < MAX-1; i++){
+
+        //ligne chiffres
+        printf("%c", B_VERTICAL);
 
         for(int j = 0; j < MAX; j++){
+            if(j%(int)sqrt(MAX) == sqrt(MAX)-1){separateur = B_VERTICAL;}
+            else{separateur = VERTICAL;}
 
-
-            if(grille[i][j] == 0){printf("   ");}
-            else {printf(" %d ", grille[i][j]);}
-
-            if(j%3==2){printf("%c",B_VERTICAL);}//thick or not
-            else {printf("%c", VERTICAL);}
-
-
+            printf(" %c %c", intToChar(grille[i][j]), separateur);
         }
 
-        if(i == 8){
-            printf("\n%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", B_LOWER_LEFT, B_HORIZONTAL, B_HORIZONTAL,
-                   B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,
-                   B_HORIZONTAL, B_T_UP, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,
-                   B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,
-                   B_HORIZONTAL, B_T_UP, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,
-                   B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_LOWER_RIGHT);
-        }
+        printf(" ligne %d\n", i);
 
-        else{
+        //ligne séparateurs
+        printf("%c",B_VERTICAL);
 
-            printf("\n");
+        if(i%(int)sqrt(MAX) == sqrt(MAX)-1){car = B_HORIZONTAL; separateur = B_HORIZONTAL;}
+        else{car = HORIZONTAL; separateur = CROSS;}
 
-            if(! (i == 2 || i == 5)) {
-                printf("%c", B_VERTICAL);
-                for(int k = 0; k < 3; k++){//3 fois
-                    printf("%c%c%c%c%c%c%c%c%c%c%c%c", HORIZONTAL, HORIZONTAL, HORIZONTAL, CROSS, HORIZONTAL, HORIZONTAL, HORIZONTAL, CROSS,
-                           HORIZONTAL, HORIZONTAL, HORIZONTAL, B_VERTICAL);
-                }
+        for(int j = 0; j < sqrt(MAX); j++){
+
+            for(int k = 0; k < sqrt(MAX) - 1; k++){
+
+                printf("%c%c%c%c", car, car, car, separateur);
+
             }
 
-            else{
-                printf("%c", B_T_RIGHT);
-                for(int k = 0; k < 3; k++){//3 fois
-                    printf("%c%c%c%c%c%c%c%c%c%c%c", B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL,
-                           B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL, B_HORIZONTAL);
-                    if(k == 2){printf("%c", B_T_LEFT);}
-                    else{printf("%c",B_CROSS);}
-                }
-            }
-            printf("\n");
+            printf("%c%c%c%c", car, car, car, B_VERTICAL);
+
         }
+        printf("\n");
+
     }
+
+    //Dernière ligne
+
+    printf("%c", B_VERTICAL);
+
+    for(int j = 0; j < MAX; j++){
+        if(j%(int)sqrt(MAX) == sqrt(MAX)-1){separateur = B_VERTICAL;}
+        else{separateur = VERTICAL;}
+
+        printf(" %c %c", intToChar(grille[MAX-1][j]), separateur);
+    }
+
+    printf(" ligne %d\n", MAX-1);
+
+    //
+
+    printf("%c",B_LOWER_LEFT);
+    for(int i = 0; i < sqrt(MAX); i++){
+        for(int j = 0; j < 4*sqrt(MAX)-1; j++){
+            printf("%c", B_HORIZONTAL);
+        }
+        if(i < sqrt(MAX)-1){printf("%c",B_T_UP);}
+    }
+    printf("%c\n", B_LOWER_RIGHT);
 
 }
 
@@ -106,6 +124,7 @@ void fillZero(Grid grid){
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
             grid[i][j] = 0;
+            printf("%d %d : %d\n", i, j, grid[i][j]);
         }
     }
 
@@ -164,4 +183,12 @@ void randomGenerate(Grid grid, int nbClues){
             else {printf("non valide\n");}
         }
     }
+}
+
+int intToChar(int input){
+
+    if(input == 0){return 32;}
+    else if(input <= 9){return 48 + input;}
+    else{return 55 + input;}
+
 }
