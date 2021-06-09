@@ -31,6 +31,24 @@ void playWithDetection(Grid grid){
     }
 }
 
+void play(Grid grid){
+  //Fait jouer le joueur sur une case vide.
+    int x,y,n;
+    do{
+        printf("\nEntre les coordonnees de la case que tu veux jouer (compris entre 1 et %d)\n",MAX);
+        printf("ligne : ");
+        scanf("%d",&x);
+        printf("colonne : ");
+        scanf("%d",&y);
+        if(grid[x-1][y-1]!=0){
+            printf("Cette case est deja remplie. Essaye une autre");
+        }
+    }while(grid[x-1][y-1]!=0);
+    printf("Entre le nombre que tu veux jouer (compris entre 1 et %d) : ",MAX);
+    scanf("%d",&n);
+    grid[x-1][y-1]=n;
+
+}
 
 //Pour la fonction qui place un nombre aléatoire sur la grille, on utilise la fonction randomGenerate avec un bnClues=1
 
