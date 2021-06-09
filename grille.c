@@ -45,6 +45,12 @@ void printGrid(Grid grille){
 
     int car = 0, separateur = 0;
 
+    //Coordonnées
+
+    for(int i = 0; i < MAX; i++){
+        printf(" C%d ", i);}
+    printf("\n");
+
     //Première ligne
 
     printf("%c",B_UPPER_LEFT);
@@ -70,7 +76,7 @@ void printGrid(Grid grille){
             printf(" %c %c", intToChar(grille[i][j]), separateur);
         }
 
-        printf(" ligne %d\n", i);
+        printf(" L%d\n", i);
 
         //ligne séparateurs
         printf("%c",B_VERTICAL);
@@ -104,7 +110,7 @@ void printGrid(Grid grille){
         printf(" %c %c", intToChar(grille[MAX-1][j]), separateur);
     }
 
-    printf(" ligne %d\n", MAX-1);
+    printf(" L%d\n", MAX-1);
 
     //
 
@@ -124,7 +130,7 @@ void fillZero(Grid grid){
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
             grid[i][j] = 0;
-            printf("%d %d : %d\n", i, j, grid[i][j]);
+            //printf("%d %d : %d\n", i, j, grid[i][j]);
         }
     }
 
@@ -170,7 +176,7 @@ void randomGenerate(Grid grid, int nbClues){
 
     //r = rand();
     while(count <nbClues){
-        printf("Nombre numero : %d\n", count+1);
+        //printf("Nombre numero : %d\n", count+1);
 
         //srand(rand());
         x = rand()%MAX;
@@ -178,9 +184,9 @@ void randomGenerate(Grid grid, int nbClues){
 
         if(grid[x][y] == 0){
             candidate = rand()%MAX + 1;
-            printf("Position  : %d %d ; candidat : %d\n", x, y, candidate);
-            if(isValidMove(grid, x, y, candidate)==true){grid[x][y] = candidate; count++; printf("valide\n");}
-            else {printf("non valide\n");}
+            //printf("Position  : %d %d ; candidat : %d\n", x, y, candidate);
+            if(isValidMove(grid, x, y, candidate)==true){grid[x][y] = candidate; count++; /*printf("valide\n");*/}
+            //else {printf("non valide\n");}
         }
     }
 }
