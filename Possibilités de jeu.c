@@ -25,6 +25,9 @@ void playWithDetection(Grid grid){
         if(possible==false){
             printf("Ah mince, ce n'est coup n'est pas possible. Mais ne t'en fais pas tu n'as qu'a reessayer!");
         }
+        else{
+            grid[x-1][y-1]=n;
+        }
     }
 }
 
