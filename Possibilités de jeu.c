@@ -51,6 +51,14 @@ void play(Grid grid){
 
 }
 
+int hint(grid,nb_hint){
+    //Donne (avec demande préalable) un indice.
+    randomGenerate(grid,1);
+    printf("Voila une petite aide. Ne t'inquiete pas cela restera entre nous.");
+    printGrid(grid);
+    return nb_hint-1;
+}
+
 //Pour la fonction qui place un nombre aléatoire sur la grille, on utilise la fonction randomGenerate avec un bnClues=1
 
 //Pour la fonction de détection d'erreur à chaque tout, on utilise la fonction isValidMove
