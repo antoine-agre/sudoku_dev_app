@@ -3,7 +3,7 @@ FILE* fichier = NULL;
 
 void saveGrid(Grid grid){
     char name[30];
-    printf("entrez le nom de la grille \n");
+    printf("Entre le nom de la grille \n");
     scanf("%s",name);
     strcat(name, ".txt");
     fichier = fopen(name, "w");
