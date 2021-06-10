@@ -1,28 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <stdbool.h>
-#define MAX 4
-#define B_UPPER_LEFT 201
-#define B_UPPER_RIGHT 187
-#define B_LOWER_LEFT 200
-#define B_LOWER_RIGHT 188
-#define B_HORIZONTAL 205
-#define B_VERTICAL 186
-#define B_CROSS 206
-#define B_T_LOW 203
-#define B_T_UP 202
-#define B_T_LEFT 185
-#define B_T_RIGHT 204
-#define UPPER_LEFT 218
-#define UPPER_RIGHT 191
-#define LOWER_LEFT 192
-#define LOWER_RIGHT 217
-#define HORIZONTAL 196
-#define VERTICAL 179
-#define CROSS 197
-
-typedef int Grid[MAX][MAX];
+#include "Header.h"
 
 void compareGrid(Grid grid1, Grid grid2){
     //procédure qui compare deux grilles et affiche en rouge les cases non identiques. (grid1 = grille de vérification)
