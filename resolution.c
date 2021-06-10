@@ -11,6 +11,8 @@ Soit (x, y, z) les coordonnées dans ce cube, où x : ligne, y : colonne, z : pl
 Le cube contient des 1/0 pour 1 <= x <= MAX, 1 <= y <= MAX, 1 <= Z <= MAX; et des compteurs pour le reste (avec des cases inutilisées).*/
 
 void printCube(Cube cube){
+//Affiche le contenu du cube, sous forme de plans successifs.
+//Utilisé uniquement en debug.
 
     for(int k = 0; k <= MAX; k++){
         printf("PLAN %d\n",k);
@@ -26,10 +28,9 @@ void printCube(Cube cube){
 }
 
 void initCube(Cube cube){
-    //Pour une grille vide
+//Initialise cube comme correspondant à une grille vide.
 
     //0 initiaux
-    printf("0 initiaux");
     for(int i = 0; i <= MAX+1; i++){
         for(int j = 0; j <= MAX; j++){
             for(int k = 0; k <= MAX; k++){
@@ -39,7 +40,6 @@ void initCube(Cube cube){
     }
 
     //Grilles principales
-    printf("grilles principales");
     for(int i = 1; i <= MAX; i++){
         for(int j = 1; j <= MAX; j++){
             for(int k = 1; k <= MAX; k++){
@@ -49,7 +49,6 @@ void initCube(Cube cube){
     }
 
     //grille de compteurs du plan 0
-    printf("grille de compteurs du plan 0");
     for(int i = 1; i <= MAX; i++){
         for(int j = 1; j <= MAX; j++){
             cube[i][j][0] = MAX;
@@ -57,7 +56,6 @@ void initCube(Cube cube){
     }
 
     //compteurs des plans non-nuls
-    printf("compteurs des plans non-nuls");
     for(int i = 0; i <= MAX+1; i+=MAX+1){
         for(int j = 1; j <= MAX; j++){
             for(int k = 1; k <= MAX; k++){
@@ -73,22 +71,24 @@ void initCube(Cube cube){
     }
 }
 
-void updateCube(Cube cube, int l, int c){
-//Met à jour le cube pour un chiffre placé aux coordonnées l c
+void updateCube(Cube cube, int l, int c, int x){
+//Met à jour le cube pour un entier x placé aux coordonnées l c de la grille.
 
     //
 
 }
 
 void updateCompteurs(Cube cube, int plan){
-//Met à jour les compteurs du plan donné du cube
+//Met à jour les compteurs du plan donné du cube.
+
+    int count;
 
     if(plan == 0){
 
         for(int i = 1; i <= MAX; i++){
             for(int j = 1; j <= MAX; j++){
 
-                int count = 0;
+                count = 0;
                 for(int k = 1; k <= MAX; k++){
                     if(cube[i][j][k] == 1){count++;}
                 }
@@ -102,7 +102,7 @@ void updateCompteurs(Cube cube, int plan){
         //Lignes
         for(int i = 1; i <= MAX; i++){
 
-            int count = 0;
+            count = 0;
             for(int j = 1; j <= MAX; j++){
                 if(cube[i][j][plan] == 1){count++;}
             }
@@ -112,7 +112,7 @@ void updateCompteurs(Cube cube, int plan){
         //Colonnes
         for(int j = 1; j <= MAX; j++){
 
-            int count = 0;
+            count = 0;
             for(int i = 1; i <= MAX; i++){
                 if(cube[i][j][plan] == 1){count++;}
             }
@@ -122,14 +122,15 @@ void updateCompteurs(Cube cube, int plan){
         //Régions
         for(int i = 1; i <= sqrt(MAX); i++){
             for(int j = 1; j <= sqrt(MAX); j++){
-                int count = 0;
+                count = 0;
 
                 for(int m = 1; m <= sqrt(MAX); m++){
                     for(int n = 1; n <= sqrt(MAX); n++){
-                        if(cube[(int)(m+sqrt(MAX)*i)][(int)(n+sqrt(MAX)*j)][plan]==1){count++;}
+                        if(cube[(int)(m+sqrt(MAX)*(i-1))][(int)(n+sqrt(MAX)*(j-1))][plan]==1){count++;}
+
                     }
                 }
-                cube[MAX+1][i+j-1][plan] = count;
+                cube[MAX+1][j+3*(i-1)][plan] = count;
 
             }
         }
