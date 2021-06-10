@@ -3,8 +3,9 @@
 #include <stdbool.h>
 #include <time.h>
 #include <math.h>
+#include <string.h>
 #define MAX 9
-#define nb_option 3
+#define nbOption 3
 #define B_UPPER_LEFT 201
 #define B_UPPER_RIGHT 187
 #define B_LOWER_LEFT 200
