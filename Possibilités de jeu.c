@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#define MAX 9
-
-typedef int Grid[MAX][MAX];
+#include "Header.h"
 
 void rules(){
     printf("\nLe Sudoku\n");
@@ -81,7 +76,7 @@ void play(Grid grid){
 
 }
 
-int hint(grid,nb_hint){
+int hint(Grid grid,int nb_hint){
     //Donne (avec demande préalable) un indice.
     randomGenerate(grid,1);
     printf("Voila une petite aide. Ne t'inquiete pas cela restera entre nous.");
