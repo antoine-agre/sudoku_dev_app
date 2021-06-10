@@ -1,15 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <time.h>
-#include <string.h>
-#define MAX 9
-typedef int Grid[MAX][MAX];
+#include "Header.h"
 FILE* fichier = NULL;
 
 
 void saveGrid(Grid grille){
-
     char name[30];
     printf("entrez le nom de la grille \n");
     scanf("%s",name);
@@ -45,6 +38,3 @@ void readGrille(Grid grille)
     }
 
 }
-
-
-
