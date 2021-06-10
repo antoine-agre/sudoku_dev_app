@@ -8,7 +8,6 @@ int main(){
     printGrid(grid);            //Affichage de la grille
     //play(grid);
     //printGrid(grid);
-
     Cube cube;
     //initCube(cube);
     //printCube(cube);
