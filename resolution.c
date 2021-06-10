@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#define MAX 4
-
-typedef int Grid[MAX][MAX];
-typedef int Cube[MAX+2][MAX+1][MAX+1];
+#include "Header.h"
 
 /*On va traiter un cube.
 Soit (x, y, z) les coordonnées dans ce cube, où x : ligne, y : colonne, z : plan.
