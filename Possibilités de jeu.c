@@ -58,16 +58,25 @@ void play(Grid grid){
     int x,y,n;
     do{
         printf("\nEntre les coordonnees de la case que tu veux jouer (compris entre 1 et %d)\n",MAX);
-        printf("ligne : ");
-        scanf("%d",&x);
-        printf("colonne : ");
-        scanf("%d",&y);
-        if(grid[x-1][y-1]!=0){
-            printf("Cette case est deja remplie. Essaye une autre");
+        printf("ligne / colonne : ");
+        scanf("%d%d",&x,&y);
+        if(x<1 || x>MAX){
+            printf("Oups! La ligne n'existe pas... Essaye en une autre.");
         }
-    }while(grid[x-1][y-1]!=0);
-    printf("Entre le nombre que tu veux jouer (compris entre 1 et %d) : ",MAX);
-    scanf("%d",&n);
+        else if(y<1 || y>MAX){
+            printf("Oups! La colonne n'existe pas... Essaye en une autre.");
+        }
+        else if(grid[x-1][y-1]!=0){
+            printf("Cette case est deja remplie. Essaye en une autre");
+        }
+    }while(grid[x-1][y-1]!=0 || x<1 || x>MAX || y<1 || y>MAX);
+    do{
+        printf("\nEntre le nombre que tu veux jouer dans la case (%d,%d) (compris entre 1 et %d) : ",x,y,MAX);
+        scanf("%d",&n);
+        if(n<1 || n>MAX){
+            printf("Malheureusement ce nombre ne convient pas a ce type de grille. Choisis en un autre.");
+        }
+    }while(n<1 || n>MAX);
     grid[x-1][y-1]=n;
 
 }
