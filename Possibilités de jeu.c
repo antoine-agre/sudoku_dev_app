@@ -73,7 +73,6 @@ void play(Grid grid){
         }
     }while(n<1 || n>MAX);
     grid[x-1][y-1]=n;
-
 }
 
 int hint(Grid grid,int nb_hint){
