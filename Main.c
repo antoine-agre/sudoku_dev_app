@@ -4,6 +4,7 @@
 #define nbOption 4              //nombre d'options existantes dans notre programme  (possible de faire un tableau qui enregistre si les option sont selectionnées ou non ex : premiere case = 0 donc l'option n'est pas selectionnées)
 
 typedef int Grid[MAX][MAX];
+typedef int Cube[MAX+2][MAX+1][MAX+1];
 
 int main(){
     srand(time(NULL));           //mise en place de l'aléatoire
@@ -12,7 +13,13 @@ int main(){
     randomGenerate(grid,35);    //rempliçage de la grille
     printGrid(grid);            //Affichage de la grille
     //play(grid);
-    printGrid(grid);
+    //printGrid(grid);
+
+    Cube cube;
+    initCube(cube);
+    printCube(cube);
+    //cube[9][9][9];
+    //updateCompteurs(cube, 9);
     //saveGrid(grid);
     //Selection des options
     //boucle qui pour chaque itération fait jouer un coup au joueur et applique les options selectionnés précédement
