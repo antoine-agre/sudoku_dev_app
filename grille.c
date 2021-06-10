@@ -150,8 +150,6 @@ bool isValidMove(Grid grid, int x, int y, int n){
 void randomGenerate(Grid grid, int nbClues){
 
     int count = 0, x, y, candidate;
-    bool ok;
-
     //r = rand();
     while(count <nbClues){
         //printf("Nombre numero : %d\n", count+1);
