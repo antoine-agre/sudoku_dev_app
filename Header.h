@@ -25,6 +25,7 @@
 #define CROSS 197
 
 typedef int Grid[MAX][MAX];
+typedef int Cube[MAX+2][MAX+1][MAX+1];
 
 void compareGrid(Grid grid1, Grid grid2);
 void printGrid(Grid grid);
