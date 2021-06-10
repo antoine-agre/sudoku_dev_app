@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define MAX 9
+#define MAX 4
 
 typedef int Grid[MAX][MAX];
 typedef int Cube[MAX+2][MAX+1][MAX+1];
@@ -74,7 +74,50 @@ void initCube(Cube cube){
 void updateCube(Cube cube, int l, int c, int x){
 //Met à jour le cube pour un entier x placé aux coordonnées l c de la grille.
 
-    //
+    //0 sur ligne
+    /*for(int i = 1; i <= MAX; i++){
+        cube[l][i][x] = 0;
+    }
+
+    //0 sur colonne
+    for(int i = 1; i <= MAX; i++){
+        cube[i][c][x] = 0;
+    }
+
+    //0 sur "colonne" plan
+    for(int i = 1; i <= MAX; i++){
+        cube[l][c][i] = 0;
+    }*/
+
+    for(int i = 1; i <= MAX; i++){
+        cube[l][i][x] = 0;//0 sur ligne
+        cube[i][c][x] = 0;//0 sur colonne
+        cube[l][c][i] = 0;//0 sur "colonne" plan
+    }
+
+    //maj compteurs
+    for(int i = 0; i <= MAX; i++){
+        updateCompteurs(cube, i);
+    }
+
+}
+
+void generateCube(Cube cube, Grid grid){
+//Génere un cube correspondant à la grille passée en paramètre.
+
+    initCube(cube);
+
+    for(int i = 0; i < MAX; i++){
+        for(int j = 0; j < MAX; j++){
+            //Pour chaque indice de la grille
+            if(grid[i][j] != 0){
+
+                updateCube(cube, i+1, j+1, grid[i][j]);
+                //printCube(cube);
+
+            }
+        }
+    }
 
 }
 

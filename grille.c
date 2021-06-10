@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
-#define MAX 9
+#define MAX 4
 #define B_UPPER_LEFT 201
 #define B_UPPER_RIGHT 187
 #define B_LOWER_LEFT 200
