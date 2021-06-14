@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
-#define MAX 4
+#define MAX 9
 #define B_UPPER_LEFT 201
 #define B_UPPER_RIGHT 187
 #define B_LOWER_LEFT 200
@@ -174,7 +174,6 @@ bool isValidMove(Grid grid, int x, int y, int n){
 void randomGenerate(Grid grid, int nbClues){
 
     int count = 0, x, y, candidate;
-    bool ok;
 
     //r = rand();
     while(count <nbClues){
@@ -199,4 +198,16 @@ int intToChar(int input){
     else if(input <= 9){return 48 + input;}
     else{return 55 + input;}
 
+}
+
+bool isGridComplete(Grid grid){
+//Détermine si la grille passée en paramètre est complète ou non.
+//On ne cherche pas à déterminer la validité de la solution, seulement si elle est remplie.
+
+    for(int i = 0; i < MAX; i++){
+        for(int j = 0; j < MAX; j++){
+            if(grid[i][j] == 0){return false;}
+        }
+    }
+    return true;
 }

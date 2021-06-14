@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <time.h>
 #include <string.h>
-#define MAX 9
+#define MAX 4
 typedef int Grid[MAX][MAX];
 FILE* fichier = NULL;
 
@@ -34,9 +34,10 @@ void saveGrid(Grid grille){
 }
 
 
-void readGrille(Grid grille)
+void readGrid(Grid grille, char name[30])
 {
-    fichier = fopen("grille1.txt", "r");
+    strcat(name, ".txt");
+    fichier = fopen(name, "r");
     for(int i=0; i<MAX; i++){
         for(int j=0; j<MAX; j++){
             grille[i][j]=fgetc(fichier)-48;
