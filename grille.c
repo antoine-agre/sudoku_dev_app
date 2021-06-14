@@ -156,3 +156,15 @@ void initializeGrid(Grid grid, Option option){
         randomGenerate(grid,25);
     }
 }
+
+bool isGridComplete(Grid grid){
+//Détermine si la grille passée en paramètre est complète ou non.
+//On ne cherche pas à déterminer la validité de la solution, seulement si elle est remplie.
+
+    for(int i = 0; i < MAX; i++){
+        for(int j = 0; j < MAX; j++){
+            if(grid[i][j] == 0){return false;}
+        }
+    }
+    return true;
+}

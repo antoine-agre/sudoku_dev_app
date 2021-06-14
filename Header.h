@@ -48,3 +48,6 @@ void generateCube(Cube cube, Grid grid);
 void updateCompteurs(Cube cube, int plan);
 void options(Option option);
 void initializeGrid(Grid grid,Option option);
+bool isGridComplete(Grid grid);
+void solveCube(Grid grid);
+int stepSolveCube(Grid grid, Cube cube);

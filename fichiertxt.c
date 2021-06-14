@@ -26,7 +26,7 @@ void saveGrid(Grid grid){
 }
 
 
-void readGrille(Grid grid){
+void readGrid(Grid grid){
     char grilles[30];
     printf("Entrez la grille que vous voulez lire \n");
     scanf("%s", grilles);
