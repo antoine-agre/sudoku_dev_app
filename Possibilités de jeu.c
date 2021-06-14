@@ -1,24 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#define MAX 9
+#include "Header.h"
 
-typedef int Grid[MAX][MAX];
+void options(Option option){
+    int i;
+    for(i=0;i<nbOption;i++){
+        if(i==0){
+            printf("Selectionne ta difficulte\n1: facile 2: normale 3: difficile 4: demoniaque : ");
+            do{
+                scanf("%d",&option[i]);
+                if(option[i]<0 || option[i]>4){
+                    printf("Oups! La valeur n'est pas bonne. Selectionne ta difficulte\n1: facile 2: normale 3: difficile 4: demoniaque : ");
+                }
+            }while(option[i]<0 || option[i]>4);
+        }
+        if(i==1){
+            printf("Veux-tu une detection automatique de tes erreurs?\nCette option nous permet d'analyser chaque coup que tu fais et de te dire s'il est valide ou non.\nEntre 1 si tu veux l'option et 0 sinon : ");
+        }
+        if(i==2){
+            printf("Veux-tu avoir acces aux bonus?\nCette option te permet de pouvoir nous demander un nombre bonus sur la grille. (tu aura un nombre limite de nombre)\nEntre 1 si tu veux l'option et 0 sinon : ");
+        }
+        if(i>0){
+            do{
+                scanf("%d",&option[i]);
+                if(option[i]!=0 && option[i]!=1){
+                    printf("Oups! La valeur n'est pas bonne. Entre 1 si tu veux l'option et 0 sinon : ");
+                }
+            }while(option[i]!=0 && option[i]!=1);
+        }
+    }
+}
 
 void rules(){
-    printf("\nLe Sudoku\n");
-    printf("Les regles sont les suivantes :\n");
-    printf("Une seule fois le meme nombre par ligne/colonne.\n");
-    printf("Une seule fois le meme nombre dans une sous-grille (tableau ayant un autre nombre de lignes/colonnes inferieur a celui de la grille).\n");
-    printf("Notre jeu propose plusieurs options que tu pourra selectionner avant la partie.\n");
-    printf("Normes de saisie du jeu :\n");
-    printf("Lors de la selectin des options, ecris 'o' pour l'avoir ou 'n' pour la desactiver.\n");
-    printf("Lors d'un coup, il faut ecrire le numero de la ligne, puis le numero de la colonne et enfin le nombre que tu veux jouer.\n");
-    printf("Bon courage!\n");
+    //Affiche les règles du jeu et du programme
+    printf("\nLe Sudoku\n\nLes regles sont les suivantes :\n\n-Une seule fois le meme nombre par ligne/colonne.\n-Une seule fois le meme nombre dans une sous-grille (tableau ayant un autre nombre de lignes/colonnes inferieur a celui de la grille).\n\nNotre jeu propose plusieurs options que tu pourra selectionner avant la partie.\n\nNormes de saisie du jeu :\n-Lors de la selectin des options, ecris 1 pour l'avoir ou 0 pour la desactiver.\n-Lors d'un coup, il faut ecrire le numero de la ligne, puis le numero de la colonne et enfin le nombre que tu veux jouer.\n\nBon courage!\n\n");
 }
 
 void playWithDetection(Grid grid){
   //Cette fonction permet de jouer en regardant si le coup est jouable ou non.
+  //Option 0
     int x,y,n;
     bool possible=false;
     while(possible==false){
@@ -55,6 +73,7 @@ void playWithDetection(Grid grid){
 
 void play(Grid grid){
   //Fait jouer le joueur sur une case vide.
+  //Si l'option 0 est désactivée
     int x,y,n;
     do{
         printf("\nEntre les coordonnees de la case que tu veux jouer (compris entre 1 et %d)\n",MAX);
@@ -78,13 +97,13 @@ void play(Grid grid){
         }
     }while(n<1 || n>MAX);
     grid[x-1][y-1]=n;
-
 }
 
-int hint(grid,nb_hint){
+int hint(Grid grid,int nbHint){
     //Donne (avec demande préalable) un indice.
+    //Option 1
     randomGenerate(grid,1);
     printf("Voila une petite aide. Ne t'inquiete pas cela restera entre nous.");
     printGrid(grid);
-    return nb_hint-1;
+    return nbHint-1;
 }
