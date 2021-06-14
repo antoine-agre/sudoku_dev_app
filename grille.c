@@ -131,3 +131,28 @@ int intToChar(int input){
     else if(input <= 9){return 48 + input;}
     else{return 55 + input;}
 }
+
+void initializeGrid(Grid grid, Option option){
+    fillZero(grid);
+    if(option[0]<0 || option[0]>4){ //sécurité
+        printf("Une erreur est survenue. Il semblerai qu'aucune difficulte n'est ete selectionnee. Pourrai-tu en selectionner une?\n1: facile 2: normale 3: difficile 4: demoniaque : ");
+        do{
+            scanf("%d",&option[0]);
+            if(option[0]<0 || option[0]>4){
+                printf("Oups! La valeur n'est pas bonne. Selectionne ta difficulte\n1: facile 2: normale 3: difficile 4: demoniaque : ");
+            }
+        }while(option[0]<0 || option[0]>4);
+    }
+    if(option[0]==1){
+        randomGenerate(grid,35);
+    }
+    if(option[0]==2){
+        randomGenerate(grid,30);
+    }
+    if(option[0]==3){
+        randomGenerate(grid,27);
+    }
+    if(option[0]==4){
+        randomGenerate(grid,25);
+    }
+}
