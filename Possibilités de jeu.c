@@ -19,6 +19,7 @@ void options(Option option){
 }
 
 void rules(){
+    //Affiche les règles du jeu et du programme
     printf("\nLe Sudoku\n");
     printf("Les regles sont les suivantes :\n");
     printf("Une seule fois le meme nombre par ligne/colonne.\n");
@@ -32,6 +33,7 @@ void rules(){
 
 void playWithDetection(Grid grid){
   //Cette fonction permet de jouer en regardant si le coup est jouable ou non.
+  //Option 0
     int x,y,n;
     bool possible=false;
     while(possible==false){
@@ -68,6 +70,7 @@ void playWithDetection(Grid grid){
 
 void play(Grid grid){
   //Fait jouer le joueur sur une case vide.
+  //Si l'option 0 est désactivée
     int x,y,n;
     do{
         printf("\nEntre les coordonnees de la case que tu veux jouer (compris entre 1 et %d)\n",MAX);
@@ -95,6 +98,7 @@ void play(Grid grid){
 
 int hint(Grid grid,int nb_hint){
     //Donne (avec demande préalable) un indice.
+    //Option 1
     randomGenerate(grid,1);
     printf("Voila une petite aide. Ne t'inquiete pas cela restera entre nous.");
     printGrid(grid);
