@@ -4,23 +4,34 @@ void options(Option option){
     int i;
     for(i=0;i<nb_option;i++){
         if(i==0){
-            printf("Veux-tu une detection automatique de tes erreurs?\nCette option nous permet d'analyser chaque coup que tu fais et de te dire s'il est valide ou non.\nEntre 1 si tu veux l'option et 0 sinon : ");
+            printf("Selectionne ta difficulte\n1: facile 2: normale 3: difficile 4: demoniaque : ");
+            do{
+                scanf("%d",&option[i]);
+                if(option[i]<0 || option[i]>4){
+                    printf("Oups! La valeur n'est pas bonne. Selectionne ta difficulte\n1: facile 2: normale 3: difficile 4: demoniaque : ");
+                }
+            }while(option[i]<0 || option[i]>4);
         }
         if(i==1){
+            printf("Veux-tu une detection automatique de tes erreurs?\nCette option nous permet d'analyser chaque coup que tu fais et de te dire s'il est valide ou non.\nEntre 1 si tu veux l'option et 0 sinon : ");
+        }
+        if(i==2){
             printf("Veux-tu avoir acces aux bonus?\nCette option te permet de pouvoir nous demander un nombre bonus sur la grille. (tu aura un nombre limite de nombre)\nEntre 1 si tu veux l'option et 0 sinon : ");
         }
-        do{
-            scanf("%d",&option[i]);
-            if(option[i]!=0 && option[i]!=1){
-                printf("Oups! La valeur n'est pas bonne. Entre 1 si tu veux l'option et 0 sinon : ");
-            }
-        }while(option[i]!=0 && option[i]!=1);
+        if(i>0){
+            do{
+                scanf("%d",&option[i]);
+                if(option[i]!=0 && option[i]!=1){
+                    printf("Oups! La valeur n'est pas bonne. Entre 1 si tu veux l'option et 0 sinon : ");
+                }
+            }while(option[i]!=0 && option[i]!=1);
+        }
     }
 }
 
 void rules(){
     //Affiche les règles du jeu et du programme
-    printf("\nLe Sudoku\n\nLes regles sont les suivantes :\n\n-Une seule fois le meme nombre par ligne/colonne.\n-Une seule fois le meme nombre dans une sous-grille (tableau ayant un autre nombre de lignes/colonnes inferieur a celui de la grille).\n\nNotre jeu propose plusieurs options que tu pourra selectionner avant la partie.\n\nNormes de saisie du jeu :\n-Lors de la selectin des options, ecris 1 pour l'avoir ou 0 pour la desactiver.\n-Lors d'un coup, il faut ecrire le numero de la ligne, puis le numero de la colonne et enfin le nombre que tu veux jouer.\n\nBon courage!\n");
+    printf("\nLe Sudoku\n\nLes regles sont les suivantes :\n\n-Une seule fois le meme nombre par ligne/colonne.\n-Une seule fois le meme nombre dans une sous-grille (tableau ayant un autre nombre de lignes/colonnes inferieur a celui de la grille).\n\nNotre jeu propose plusieurs options que tu pourra selectionner avant la partie.\n\nNormes de saisie du jeu :\n-Lors de la selectin des options, ecris 1 pour l'avoir ou 0 pour la desactiver.\n-Lors d'un coup, il faut ecrire le numero de la ligne, puis le numero de la colonne et enfin le nombre que tu veux jouer.\n\nBon courage!\n\n");
 }
 
 void playWithDetection(Grid grid){
