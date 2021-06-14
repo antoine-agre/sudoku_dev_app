@@ -1,17 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <time.h>
-#include <string.h>
-#define MAX 4
-typedef int Grid[MAX][MAX];
+#include "Header.h"
 FILE* fichier = NULL;
 
-
-void saveGrid(Grid grille){
-
+void saveGrid(Grid grid){
     char name[30];
-    printf("entrez le nom de la grille \n");
+    printf("Entre le nom de la grille \n");
     scanf("%s",name);
     strcat(name, ".txt");
     fichier = fopen(name, "w");
@@ -19,12 +11,12 @@ void saveGrid(Grid grille){
     //fputs("\n", fichier);
     for (int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(grille[i][j] == 0){
+            if(grid[i][j] == 0){
                     //printf(".\t");
                     fputs("0", fichier);}
             else {
                     //printf("%d\t", grille[i][j]);
-                    fprintf(fichier,"%d", grille[i][j]);
+                    fprintf(fichier,"%d", grid[i][j]);
             }
         }
         //printf("\n\n");
@@ -34,18 +26,17 @@ void saveGrid(Grid grille){
 }
 
 
-void readGrid(Grid grille, char name[30])
-{
-    strcat(name, ".txt");
-    fichier = fopen(name, "r");
+void readGrid(Grid grille)
+    char grilles[30];
+    printf("Entrez la grille que vous voulez lire \n");
+    scanf("%s", grilles);
+    strcat(grilles, ".txt");
+    fichier = fopen(grilles, "r");
     for(int i=0; i<MAX; i++){
         for(int j=0; j<MAX; j++){
-            grille[i][j]=fgetc(fichier)-48;
+            grid[i][j]=fgetc(fichier)-48;
         }
         fseek(fichier, 2, SEEK_CUR);
     }
 
 }
-
-
-
