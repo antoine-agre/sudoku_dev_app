@@ -20,15 +20,7 @@ void options(Option option){
 
 void rules(){
     //Affiche les règles du jeu et du programme
-    printf("\nLe Sudoku\n");
-    printf("Les regles sont les suivantes :\n");
-    printf("Une seule fois le meme nombre par ligne/colonne.\n");
-    printf("Une seule fois le meme nombre dans une sous-grille (tableau ayant un autre nombre de lignes/colonnes inferieur a celui de la grille).\n");
-    printf("Notre jeu propose plusieurs options que tu pourra selectionner avant la partie.\n");
-    printf("Normes de saisie du jeu :\n");
-    printf("Lors de la selectin des options, ecris 'o' pour l'avoir ou 'n' pour la desactiver.\n");
-    printf("Lors d'un coup, il faut ecrire le numero de la ligne, puis le numero de la colonne et enfin le nombre que tu veux jouer.\n");
-    printf("Bon courage!\n");
+    printf("\nLe Sudoku\n\nLes regles sont les suivantes :\n\n-Une seule fois le meme nombre par ligne/colonne.\n-Une seule fois le meme nombre dans une sous-grille (tableau ayant un autre nombre de lignes/colonnes inferieur a celui de la grille).\n\nNotre jeu propose plusieurs options que tu pourra selectionner avant la partie.\n\nNormes de saisie du jeu :\n-Lors de la selectin des options, ecris 1 pour l'avoir ou 0 pour la desactiver.\n-Lors d'un coup, il faut ecrire le numero de la ligne, puis le numero de la colonne et enfin le nombre que tu veux jouer.\n\nBon courage!\n");
 }
 
 void playWithDetection(Grid grid){
