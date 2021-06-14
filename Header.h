@@ -38,7 +38,7 @@ int intToChar(int input);
 void rules();
 void playWithDetection(Grid grid);
 void play(Grid grid);
-int hint(Grid grid,int nb_hint);
+int hint(Grid grid,int nbHint);
 void saveGrid(Grid grille);
 void readGrille(Grid grille);
 void printCube(Cube cube);
