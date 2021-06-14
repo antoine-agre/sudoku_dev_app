@@ -27,7 +27,11 @@ void saveGrid(Grid grid){
 
 
 void readGrille(Grid grid){
-    fichier = fopen("grille1.txt", "r");
+    char grilles[30];
+    printf("Entrez la grille que vous voulez lire \n");
+    scanf("%s", grilles);
+    strcat(grilles, ".txt");
+    fichier = fopen(grilles, "r");
     for(int i=0; i<MAX; i++){
         for(int j=0; j<MAX; j++){
             grid[i][j]=fgetc(fichier)-48;
