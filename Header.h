@@ -46,4 +46,4 @@ void initCube(Cube cube);
 void updateCube(Cube cube, int l, int c, int x);
 void generateCube(Cube cube, Grid grid);
 void updateCompteurs(Cube cube, int plan);
-void options();
+void options(Option option);
