@@ -234,7 +234,7 @@ int stepSolveCube(Grid grid, Cube cube){
                 for(int i = 1; i <= MAX; i++){
 
                     if(cube[i][j][k] == 1){
-                        printf("colonne : %d %d %d\n", i, j, k);//
+                        //printf("colonne : %d %d %d\n", i, j, k);//
                         grid[i-1][j-1] = k;
                         //printGrid(grid);//
                         updateCube(cube, i, j, k);

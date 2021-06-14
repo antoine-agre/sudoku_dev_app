@@ -10,7 +10,7 @@ int main(){
     //play(grid);
     //printGrid(grid);
 
-    grid[0][1] = 7;
+    /*grid[0][1] = 7;
     grid[0][8] = 9;
     grid[1][0] = 5;
     grid[1][1] = 1;
@@ -43,6 +43,9 @@ int main(){
     grid[8][5] = 3;
     grid[8][7] = 9;
     grid[8][8] = 6;
+    printGrid(grid);*/
+
+    readGrid(grid);
     printGrid(grid);
 
     Cube cube;
