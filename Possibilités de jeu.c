@@ -1,5 +1,23 @@
 #include "Header.h"
 
+void options(Option option){
+    int i;
+    for(i=0;i<nb_option;i++){
+        if(i==0){
+            printf("Veux-tu une detection automatique de tes erreurs?\nCette option nous permet d'analyser chaque coup que tu fais et de te dire s'il est valide ou non.\nEntre 1 si tu veux l'option et 0 sinon : ");
+        }
+        if(i==1){
+            printf("Veux-tu avoir acces aux bonus?\nCette option te permet de pouvoir nous demander un nombre bonus sur la grille. (tu aura un nombre limite de nombre)\nEntre 1 si tu veux l'option et 0 sinon : ");
+        }
+        do{
+            scanf("%d",&option[i]);
+            if(option[i]!=0 && option[i]!=1){
+                printf("Oups! La valeur n'est pas bonne. Entre 1 si tu veux l'option et 0 sinon : ");
+            }
+        }while(option[i]!=0 && option[i]!=1);
+    }
+}
+
 void rules(){
     printf("\nLe Sudoku\n");
     printf("Les regles sont les suivantes :\n");
