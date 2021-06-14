@@ -3,7 +3,7 @@
 void options(Option option){
     int i;
     for(i=0;i<nbOption;i++){
-        if(i==0){
+        if(i==0){ //Option de difficulté
             printf("Selectionne ta difficulte\n1: facile 2: normale 3: difficile 4: demoniaque : ");
             do{
                 scanf("%d",&option[i]);
@@ -12,10 +12,10 @@ void options(Option option){
                 }
             }while(option[i]<0 || option[i]>4);
         }
-        if(i==1){
+        if(i==1){//Option d'analyse d'erreurs
             printf("Veux-tu une detection automatique de tes erreurs?\nCette option nous permet d'analyser chaque coup que tu fais et de te dire s'il est valide ou non.\nEntre 1 si tu veux l'option et 0 sinon : ");
         }
-        if(i==2){
+        if(i==2){//Option de bonus
             printf("Veux-tu avoir acces aux bonus?\nCette option te permet de pouvoir nous demander un nombre bonus sur la grille. (tu aura un nombre limite de nombre)\nEntre 1 si tu veux l'option et 0 sinon : ");
         }
         if(i>0){
@@ -36,7 +36,7 @@ void rules(){
 
 void playWithDetection(Grid grid){
   //Cette fonction permet de jouer en regardant si le coup est jouable ou non.
-  //Option 0
+  //Option 1
     int x,y,n;
     bool possible=false;
     while(possible==false){
@@ -73,7 +73,7 @@ void playWithDetection(Grid grid){
 
 void play(Grid grid){
   //Fait jouer le joueur sur une case vide.
-  //Si l'option 0 est désactivée
+  //Si l'option 1 est désactivée
     int x,y,n;
     do{
         printf("\nEntre les coordonnees de la case que tu veux jouer (compris entre 1 et %d)\n",MAX);
@@ -101,7 +101,7 @@ void play(Grid grid){
 
 int hint(Grid grid,int nbHint){
     //Donne (avec demande préalable) un indice.
-    //Option 1
+    //Option 2
     randomGenerate(grid,1);
     printf("Voila une petite aide. Ne t'inquiete pas cela restera entre nous.");
     printGrid(grid);
