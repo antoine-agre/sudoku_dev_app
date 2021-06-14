@@ -5,7 +5,7 @@
 #include <math.h>
 #include <string.h>
 #define MAX 9
-#define nbOption 3
+#define nbOption 2
 #define B_UPPER_LEFT 201
 #define B_UPPER_RIGHT 187
 #define B_LOWER_LEFT 200
@@ -25,6 +25,7 @@
 #define VERTICAL 179
 #define CROSS 197
 
+typedef int Option[nb_option];
 typedef int Grid[MAX][MAX];
 typedef int Cube[MAX+2][MAX+1][MAX+1];
 
@@ -45,3 +46,4 @@ void initCube(Cube cube);
 void updateCube(Cube cube, int l, int c, int x);
 void generateCube(Cube cube, Grid grid);
 void updateCompteurs(Cube cube, int plan);
+void options();
