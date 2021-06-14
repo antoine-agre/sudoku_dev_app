@@ -2,7 +2,7 @@
 
 void options(Option option){
     int i;
-    for(i=0;i<nb_option;i++){
+    for(i=0;i<nbOption;i++){
         if(i==0){
             printf("Selectionne ta difficulte\n1: facile 2: normale 3: difficile 4: demoniaque : ");
             do{
@@ -99,11 +99,11 @@ void play(Grid grid){
     grid[x-1][y-1]=n;
 }
 
-int hint(Grid grid,int nb_hint){
+int hint(Grid grid,int nbHint){
     //Donne (avec demande préalable) un indice.
     //Option 1
     randomGenerate(grid,1);
     printf("Voila une petite aide. Ne t'inquiete pas cela restera entre nous.");
     printGrid(grid);
-    return nb_hint-1;
+    return nbHint-1;
 }
