@@ -92,8 +92,7 @@ void play(Grid grid){
         else if(grid[x-1][y-1]!=0){
             printf("Cette case est deja remplie. Essaye en une autre");
             printGrid(grid);
-        }
-        
+        }  
     }while(grid[x-1][y-1]!=0 || x<1 || x>MAX || y<1 || y>MAX);
     do{
         printf("\nEntre le nombre que tu veux jouer dans la case (%d,%d) (compris entre 1 et %d) : ",x,y,MAX);
@@ -104,7 +103,6 @@ void play(Grid grid){
         }
     }while(n<1 || n>MAX);
     grid[x-1][y-1]=n;
-
 }
 
 int hint(Grid grid,int nbHint){
