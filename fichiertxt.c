@@ -22,7 +22,6 @@ void saveGrid(Grid grid){
         //printf("\n\n");
         fputs("\n", fichier);
     }
-
 }
 
 
@@ -38,5 +37,4 @@ void readGrid(Grid grid){
         }
         fseek(fichier, 2, SEEK_CUR);
     }
-
 }
