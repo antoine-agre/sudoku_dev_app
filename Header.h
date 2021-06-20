@@ -31,6 +31,7 @@ typedef int Grid[MAX][MAX];
 typedef int Cube[MAX+2][MAX+1][MAX+1];
 static GtkWidget *wid [9][9] , *window;
 bool to_show;
+FILE* fichier = NULL;
 
 void compareGrid(Grid grid1, Grid grid2);
 void printGrid(Grid grid);
