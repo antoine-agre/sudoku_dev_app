@@ -1,4 +1,4 @@
-/*#include "Header.h"
+#include "Header.h"
 
 
 static int grid[9][9];
@@ -100,5 +100,3 @@ void randomGenerate(Grid grid, int nbClues){
 
         return 0;
     }
-
-*/

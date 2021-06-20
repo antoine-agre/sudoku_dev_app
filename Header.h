@@ -4,7 +4,7 @@
 #include <time.h>
 #include <math.h>
 #include <string.h>
-//#include <gtk/gtk.h>
+#include <gtk/gtk.h>
 #define MAX 9
 #define nbOption 3
 #define B_UPPER_LEFT 201
@@ -29,7 +29,7 @@
 typedef int Option[nbOption];
 typedef int Grid[MAX][MAX];
 typedef int Cube[MAX+2][MAX+1][MAX+1];
-//static GtkWidget *wid [9][9] , *window;
+static GtkWidget *wid [9][9] , *window;
 
 void compareGrid(Grid grid1, Grid grid2);
 void printGrid(Grid grid);
