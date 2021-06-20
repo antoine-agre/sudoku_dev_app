@@ -8,7 +8,8 @@ int main(){
     int jouer=1, reponse=0, nbHint=3;
     while(jouer==1){
         options(option);
-        initializeGrid(grid,option);
+        //initializeGrid(grid,option);
+        readGrid(grid);
         printGrid(grid);
         while(isGridComplete(grid)==false){
             if(option[2]==1 && nbHint>0){

@@ -1,27 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <gtk/gtk.h>
-#include <math.h>
-#include <stdbool.h>
-#define MAX 9
-#define B_UPPER_LEFT 201
-#define B_UPPER_RIGHT 187
-#define B_LOWER_LEFT 200
-#define B_LOWER_RIGHT 188
-#define B_HORIZONTAL 205
-#define B_VERTICAL 186
-#define B_CROSS 206
-#define B_T_LOW 203
-#define B_T_UP 202
-#define B_T_LEFT 185
-#define B_T_RIGHT 204
-#define UPPER_LEFT 218
-#define UPPER_RIGHT 191
-#define LOWER_LEFT 192
-#define LOWER_RIGHT 217
-#define HORIZONTAL 196
-#define VERTICAL 179
-#define CROSS 197
+#include "Header.h"
+
 typedef int Grid[MAX][MAX];
 FILE* fichier = NULL;
 
@@ -32,15 +10,15 @@ bool to_show;
 
 
 bool isValidMove(Grid grid, int x, int y, int n){
-    //il faut des nombre avec une racine carrÃ© parfaite
-    //VÃ©rifie si colonne + ligne + carrÃ© de la case x y ne contiennent jamais l'entier n (y compris case x y)
+    //il faut des nombre avec une racine carré parfaite
+    //Vérifie si colonne + ligne + carré de la case x y ne contiennent jamais l'entier n (y compris case x y)
     for(int i = 0; i < MAX; i++){ //ligne
         if(grid[x][i] == n){return false;}
     }
     for(int i = 0; i < MAX; i++){//colonne
         if(grid[i][y] == n){return false;}
     }
-    // k et l : dÃ©calage ligne/colonne
+    // k et l : décalage ligne/colonne
     int k,l;
     if(x >= 0 && x < sqrt(MAX)){k = 0;}
     else if(x >= sqrt(MAX) && x < 2*sqrt(MAX)){k = sqrt(MAX);}
@@ -76,11 +54,11 @@ void randomGenerate(Grid grid, int nbClues){
 
         GtkWidget *vbox , *hbox , *separator , *button , *toggle , *file_menu , *menu_bar , *menu_item;
         window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-        g_signal_connect(window, "delete-event", G_CALLBACK(gtk_main_quit), NULL);             
+        g_signal_connect(window, "delete-event", G_CALLBACK(gtk_main_quit), NULL);
 
         vbox = gtk_vbox_new(0,0);
 
-        for ( int i = 0 ; i < 9 ; i++ )                   
+        for ( int i = 0 ; i < 9 ; i++ )
         {
             hbox = gtk_hbox_new(0,0);
 
@@ -91,7 +69,7 @@ void randomGenerate(Grid grid, int nbClues){
                 gtk_widget_set_size_request(wid[i][j],50,50);
                 gtk_box_pack_start(GTK_BOX(hbox),wid[i][j],1,1,0);
 
-                if ( (j+1)%3 == 0 )                      
+                if ( (j+1)%3 == 0 )
                 {
                     separator = gtk_vseparator_new();
                     gtk_box_pack_start(GTK_BOX(hbox),separator,1,1,0);
@@ -103,7 +81,7 @@ void randomGenerate(Grid grid, int nbClues){
 
             gtk_box_pack_start(GTK_BOX(vbox),hbox,1,1,0);
 
-            if ( (+1)%3 == 0 )                         
+            if ( (+1)%3 == 0 )
             {
                 separator = gtk_hseparator_new();
                 gtk_box_pack_start(GTK_BOX(vbox),separator,1,1,0);

@@ -4,6 +4,7 @@
 #include <time.h>
 #include <math.h>
 #include <string.h>
+#include <gtk/gtk.h>
 #define MAX 9
 #define nbOption 3
 #define B_UPPER_LEFT 201
