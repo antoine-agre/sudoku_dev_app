@@ -29,8 +29,7 @@ void saveGrid(Grid grid){
 void readGrid(Grid grid){
     char grilles[30];
     FILE* fichier = NULL;
-
-    printf("Entrez la grille que vous voulez lire \n");
+    printf("\nEntrez la grille que vous voulez lire :\n");
     scanf("%s", grilles);
     strcat(grilles, ".txt");
     fichier = fopen(grilles, "r");

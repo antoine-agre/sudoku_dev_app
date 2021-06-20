@@ -9,6 +9,7 @@ int main(){
     while(jouer==1){
         options(option);
         //initializeGrid(grid,option);
+        printf("\nGrilles disponibles : grille1, grille2, grille3\n");
         readGrid(grid);
         printGrid(grid);
         while(isGridComplete(grid)==false){
