@@ -63,7 +63,7 @@ void randomGenerate(Grid grid, int nbClues){
         y = rand()%MAX;
         if(grid[x][y] == 0){
             candidate = rand()%MAX + 1;
-            if(isValidMove(grid, x, y, candidate)==true){grid[x][y] = candidate; count++; /*printf("valide\n");*/}
+            if(isValidMove(grid, x, y, candidate)==true){grid[x][y] = candidate; count++; }
         }
     }
 }
@@ -116,7 +116,7 @@ void randomGenerate(Grid grid, int nbClues){
 
         gtk_container_add(GTK_CONTAINER(window),vbox);
 
-        gtk_window_set_title(GTK_WINDOW(window),"Sudoku Solver");
+        gtk_window_set_title(GTK_WINDOW(window),"Solver Sudoku");
 
         gtk_widget_show_all(window);
 
