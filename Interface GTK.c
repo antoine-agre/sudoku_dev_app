@@ -1,6 +1,5 @@
 #include "Header.h"
 
-FILE* fichier = NULL;
 
 static int grid[9][9];
 static GtkWidget *wid [9][9] , *window;
