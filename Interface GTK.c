@@ -100,3 +100,4 @@ void randomGenerate(Grid grid, int nbClues){
 
         return 0;
     }
+

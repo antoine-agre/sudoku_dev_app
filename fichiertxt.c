@@ -1,9 +1,9 @@
 #include "Header.h"
 
-FILE* fichier = null;
-
 void saveGrid(Grid grid){
     char name[30];
+    FILE* fichier = NULL;
+
     printf("Entre le nom de la grille \n");
     scanf("%s",name);
     strcat(name, ".txt");
@@ -28,6 +28,8 @@ void saveGrid(Grid grid){
 
 void readGrid(Grid grid){
     char grilles[30];
+    FILE* fichier = NULL;
+
     printf("Entrez la grille que vous voulez lire \n");
     scanf("%s", grilles);
     strcat(grilles, ".txt");
