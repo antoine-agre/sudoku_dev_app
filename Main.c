@@ -34,6 +34,7 @@ int main(){
                 printGrid(grid);
             }
         }
+        saveGrid(grid);
         do{
             printf("Veux-tu rejouer?\nEntre 1 si tu en veux rejouer et 0 sinon : ");
             scanf("%d",&jouer);
