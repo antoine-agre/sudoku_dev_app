@@ -1,5 +1,4 @@
 #include "Header.h"
-FILE* fichier = NULL;
 
 void saveGrid(Grid grid){
     char name[30];
