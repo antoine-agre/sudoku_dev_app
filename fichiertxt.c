@@ -1,5 +1,7 @@
 #include "Header.h"
 
+FILE* fichier = null;
+
 void saveGrid(Grid grid){
     char name[30];
     printf("Entre le nom de la grille \n");
